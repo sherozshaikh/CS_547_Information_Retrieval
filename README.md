@@ -104,7 +104,7 @@ The model used is seen below:
 
 ## GitHub Repository -  
 
-Here is the link for the [repository](https://github.com/Iashaun/Iashaun.github.io-Cross-Lingual-Information-Retrieval-CLIR-)
+Here is the link for the [repository](https://github.com/sherozshaikh/CS_547_Information_Retrieval)
 
 ### References
 We took inspiration from the following papers and worked on our project
