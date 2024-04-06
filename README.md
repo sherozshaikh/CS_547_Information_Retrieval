@@ -1,8 +1,8 @@
 # Cross Lingual Information Retrieval
 
-
-## Team Members: 
-Shaun Noronha, Sheroz Shaikh
+## Authors
+- [Shaun Noronha](https://github.com/Shaun-Noronha)
+- [Sheroz Shaikh](https://github.com/sherozshaikh)
 
 ## Background and Motivation
 Our proposed tool is designed to perform cross-lingual information retrieval by extracting
