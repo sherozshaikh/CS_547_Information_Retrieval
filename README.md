@@ -1,4 +1,9 @@
-# Cross Lingual Information Retrieval
+## University & Course Details
+- Course: CS 547 - Information Retrieval
+- University: Worcester Polytechnic Institute
+- Semester: Fall 2023
+
+## Cross Lingual Information Retrieval
 
 ## Authors
 - [Shaun Noronha](https://github.com/Shaun-Noronha)
