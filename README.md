@@ -1,33 +1,26 @@
-## University & Course Details
-- Course: CS 547 - Information Retrieval
-- University: Worcester Polytechnic Institute
-- Semester: Fall 2023
+# University & Course Details
+- **Course**: CS 547 - Information Retrieval
+- **University**: Worcester Polytechnic Institute
+- **Semester**: Fall 2023
 
-## Cross Lingual Information Retrieval
+# 🌍 Cross-Lingual Information Retrieval
 
-## Authors
+## 👨‍💻 Authors
 - [Shaun Noronha](https://github.com/Shaun-Noronha)
 - [Sheroz Shaikh](https://github.com/sherozshaikh)
 
-## Background and Motivation
-Our proposed tool is designed to perform cross-lingual information retrieval by extracting
-relevant documents from a large corpus. It operates based on user-specified queries that can be
-provided in any of the seven selected languages: Arabic (Ar), Bengali (Bn), Finnish (Fi),
-Japanese (Ja), Korean (Ko), Russian (Ru), and Telugu (Te). Notably, the tool can retrieve the most relevant top-k documents regardless of the language in which the query is
-expressed. This feature obviates the need for machine translation (MT) to translate the query,
-which can sometimes hinder retrieval performance. The tool empowers users to effortlessly
-access relevant documents in multiple languages, streamlining the information retrieval process
-thus avoiding potential issues related to translation quality and ambiguity.
+## 🌟 Background and Motivation
+Our cross-lingual information retrieval tool is designed to extract relevant documents from a large corpus based on user-specified queries in any of seven languages: Arabic (Ar), Bengali (Bn), Finnish (Fi), Japanese (Ja), Korean (Ko), Russian (Ru), and Telugu (Te). Unlike traditional methods that rely on machine translation, our tool can retrieve the most relevant top-k documents without the need for translation, which can sometimes introduce errors or hinder retrieval performance. By directly accessing relevant documents in their original language, users can enjoy a seamless and efficient information retrieval experience, avoiding potential issues with translation quality or ambiguity.
 
-## Dataset
+## 📚 Dataset
 ### Cross-lingual Open-Retrieval Question Answering Data
-We used the data available on [XOR-TyDi](https://nlp.cs.washington.edu/xorqa/)
+We used the data available on [XOR-TyDi](https://nlp.cs.washington.edu/xorqa/), which provides a rich source of cross-lingual question-and-answer data. This dataset offers a comprehensive view of queries, correct and incorrect answers, and allows for a realistic assessment of our information retrieval tool.
 
 <p align="middle">
   <img src="Table-1.jpg" width="450" />
 </p>
 
-### Columns
+### Dataset Columns
 
 | Column |Description|
 |-------|--------|
@@ -35,58 +28,50 @@ We used the data available on [XOR-TyDi](https://nlp.cs.washington.edu/xorqa/)
 | Correct Answers /Document | Correct answers for the documents |
 | Incorrect Answers /Document | Incorrect answers for the documents |
 
-## Exploratory Data Analysis
+## 🔎 Exploratory Data Analysis
 
-Among the datasets assessed for this project, the selected dataset stands out due to its unique inclusion of random instances and nuanced complexities essential for mirroring real-world scenarios. This dataset was specifically chosen for its ability to provide a comprehensive view of unpredictable and varied data patterns, ensuring our model learns from a spectrum of examples, rather than fixating on specific biases or patterns. By leveraging this dataset, our project aims to equip the model with adaptability to unforeseen scenarios, enabling it to comprehend subtle variations and edge cases commonly encountered in practical applications, thereby enhancing its robustness in real-world deployments
+Among the datasets assessed for this project, this dataset was chosen for its unique inclusion of random instances and nuanced complexities. It provides a diverse range of data patterns that mirror real-world scenarios, allowing our model to learn from varied examples, and ensuring adaptability to unforeseen circumstances. The ultimate goal is to equip the model with the robustness required for practical applications, improving its performance in real-world deployments.
 
-## Implementation
+## 🛠️ Implementation
 
-We used the data for our model as
+Our implementation involves training and testing data for model evaluation:
+- **Training Data**: 80% of the dataset is used for training.
+- **Test Data**: 20% is reserved for testing and validation.
+For the demonstration, we use less than 1% of the data to ensure quick inference.
 
-**Training Data** 80% of the Data.
-**Test Data** 20% of the Data.
+### Bi-directional LSTM
 
-For the demo, we only considered less than 1% for quick inference
-
-### Bidirectional LSTM
-
-Bidirectional LSTM (BiLSTM) is a recurrent neural network used primarily for natural language processing. Unlike standard LSTM, the input flows in both directions, and it’s capable of utilizing information from both sides. It’s also a powerful tool for modeling the sequential dependencies between words and phrases in both directions of the sequence.
+Bidirectional Long Short-Term Memory (BiLSTM) is a powerful recurrent neural network used in our project for its capability to process information from both directions. It captures sequential dependencies, allowing a more profound understanding of textual context.
 
 <p align="middle">
   <img src="bilstm-1.jpg" width="450" /> 
 </p>
 
 
-### Nearest-Neighbours
+### Nearest-Neighbours Approach
 
-A nearest-neighbors model is a technique used for searching and retrieving similar items or data points from a dataset based on their similarity to a query item. It operates on the principle that items that are close or similar in a feature space should also be similar in their inherent characteristics or properties.
+The nearest-neighbors model is used for identifying similar items or data points based on their proximity in a feature space. This technique is crucial for information retrieval, as it helps find the most relevant documents based on user queries.
 
-The nearest-neighbors model works by organizing the dataset into a structure that efficiently retrieves the nearest or most similar items to a given query. 
+### Approximate Nearest Neighbor (Annoy)
 
+Annoy is a library designed for high-dimensional data, allowing fast and approximate nearest-neighbor searches. It's beneficial for handling large datasets and is widely used in recommendation systems, information retrieval, clustering, and other machine-learning applications.
 
-### Annoy
+### HNSW (Hierarchical Navigable Small World) Library
 
-Annoy is a library used for approximate nearest-neighbor search. It's particularly useful when dealing with high-dimensional data and finding nearest neighbors efficiently. The library provides a data structure and algorithms that enable fast approximate searches for nearest neighbors, especially in very large datasets.
-
-It uses random projections to build trees that represent the data in a way that allows for quick lookup of approximate nearest neighbors. It's commonly used in tasks involving recommendation systems, information retrieval, clustering, and other machine-learning applications where finding similar items or data points efficiently is crucial.
-
-### HnswLib
-
-HNSW (Hierarchical Navigable Small World) is a library used for approximate nearest neighbor search, similar to Annoy. It's designed to efficiently locate approximate nearest neighbors in high-dimensional spaces, especially in scenarios where traditional methods might struggle due to the curse of dimensionality.
-
-HNSW constructs a graph structure that enables fast and approximate nearest-neighbor searches by forming a hierarchical graph that organizes the data points. It builds a navigable small-world graph, which efficiently connects data points in a way that maintains both local and global connectivity, allowing for quick search operations while approximating the nearest neighbors.
+HNSW provides efficient approximate nearest-neighbor searches by constructing a hierarchical graph structure. This method allows for quick searches and maintains global and local connectivity, making it a robust solution for high-dimensional data.
 
 #### Model Design
+
+Here's the model used in our implementation:
 
 The model used is seen below:
 <p align="middle">
   <img src="LSTM.jpg" width="250" />
 </p>
 
+## ✨ Conclusion & Future Work
 
-## Conclusion & Future Work
-
-1. The performance of the nearest neighbor search may vary across different methods (NearestNeighbors, AnnoyIndex, hnswlib). Comparing their accuracy, efficiency, and recall rates can help identify the most suitable method. 
+1. The performance of different nearest-neighbor search methods (NearestNeighbors, AnnoyIndex, HNSWLib) can vary. Comparing their accuracy, efficiency, and recall rates is essential to identify the best approach.
 
 |    |   Index_IDS |   NearestNeighbors |   AnnoyIndex |   HNSWLib |   Best_Of_3 |   Neighbours |
 |----|-------------|--------------------|--------------|-----------|-------------|--------------|
@@ -104,19 +89,16 @@ The model used is seen below:
 | 11 |        9982 |                  1 |            1 |         1 |           1 |           10 |     
 | 12 |        9995 |                  1 |            1 |         1 |           1 |            2 |     
 
-2. Using a sentence tokenizer from the BERT family offers advantages in tokenizing text into meaningful segments. Instead of the current embedding model that learns embeddings from scratch, leveraging BERT-based tokenization can benefit the process.
-3. Employing exact nearest neighbor search metrics such as cosine similarity or Euclidean distance could refine the search process. 
+2. Using a sentence tokenizer from the BERT family offers significant advantages. It can improve text tokenization and facilitate better embeddings for natural language processing.
 
-## GitHub Repository -  
+3. Employing exact nearest-neighbor search metrics like cosine similarity or Euclidean distance can improve the accuracy and refinement of the search process.
 
-Here is the link for the [repository](https://github.com/sherozshaikh/CS_547_Information_Retrieval)
+## 🏛️ GitHub Repository
+For the complete project, you can visit our GitHub repository [here](https://github.com/sherozshaikh/CS_547_Information_Retrieval).
 
-### References
-We took inspiration from the following papers and worked on our project
+## 📚 References
+The following references provided inspiration and guidance for this project:
 
-1. Shengyao Z., Linjun S., Guido Z. (2023). Augmenting Passage Representations with Query Generation for
-Enhanced Cross-Lingual Dense Retrieval. SIGIR (2023), https://doi.org/10.48550/arXiv.2305.03950
-2. Zhuolin J., El-Jaroudi A., William H., Damianos K., Lingjun Z. (2020). Cross-lingual Information Retrieval with
-BERT. https://doi.org/10.48550/arXiv.2004.13005
-3. Yulong Li, Martin Franz, Md Arafat Sultan, Bhavani Iyer, Young-Suk Lee, Avirup Sil (2022). Learning
-Cross-Lingual IR from an English Retriever. NAACL (2022), https://doi.org/10.48550/arXiv.2112.08185
+1. Shengyao Z., Linjun S., Guido Z. (2023). "Augmenting Passage Representations with Query Generation for Enhanced Cross-Lingual Dense Retrieval." SIGIR (2023). [Link](https://doi.org/10.48550/arXiv.2305.03950)
+2. Zhuolin J., El-Jaroudi A., William H., Damianos K., Lingjun Z. (2020). "Cross-lingual Information Retrieval with BERT." [Link](https://doi.org/10.48550/arXiv.2004.13005)
+3. Yulong Li, Martin Franz, Md Arafat Sultan, Bhavani Iyer, Young-Suk Lee, Avirup Sil (2022). "Learning Cross-Lingual IR from an English Retriever." NAACL (2022). [Link](https://doi.org/10.48550/arXiv.2112.08185)
