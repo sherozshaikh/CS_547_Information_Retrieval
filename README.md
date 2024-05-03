@@ -1,4 +1,4 @@
-# University & Course Details
+# 🎓 University & Course Details
 - **Course**: CS 547 - Information Retrieval
 - **University**: Worcester Polytechnic Institute
 - **Semester**: Fall 2023
